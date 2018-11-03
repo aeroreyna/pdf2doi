@@ -1,12 +1,12 @@
 {
   "name": "pdf2doi",
   "version": "1.0.0",
-  "description": "",
+  "description": "A node.js tool to find the DOI of pdf scientific articles",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Adolfo Reyna-Orta",
   "license": "ISC",
   "dependencies": {
     "crossref": "^1.2.1",
