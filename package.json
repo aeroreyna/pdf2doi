@@ -1,0 +1,20 @@
+{
+  "name": "pdf2doi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crossref": "^1.2.1",
+    "pdf": "^0.1.0",
+    "pdf-parse": "^1.1.1",
+    "pdfjs": "^2.1.0"
+  },
+  "devDependencies": {
+    "doi2bib": "^1.0.4"
+  }
+}
