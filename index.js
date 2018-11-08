@@ -38,7 +38,7 @@ pdf2doi.fromData = function(dataBuffer){
           //console.log("Authors: " + JSON.stringify(objs[0].author) + "\n");
           //console.log("DOI: " + objs[0].DOI + "\n");
 
-          if(searchString.indexOf(objs[0].title[0])!=-1){ //console.log("titles match");
+          if(objs[0].title && searchString.indexOf(objs[0].title[0])!=-1){ //console.log("titles match");
             doi.crossRefDOI = objs[0].DOI;
             doi.doi = objs[0].DOI;
             resolve(doi);
