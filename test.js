@@ -1,6 +1,8 @@
 const pdf2doi = require("./index.js");
 const doi2bib = require('doi2bib');
 
+pdf2doi.verbose = true;
+
 pdf2doi.fromFile(process.argv[2] || "./497514.pdf").then((doi)=>{
   console.log(doi);
   if(doi.doi) doi2bib.getCitation(doi.doi).then(console.log);
