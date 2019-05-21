@@ -1,6 +1,6 @@
 {
   "name": "pdf2doi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A node.js tool to find the DOI of pdf scientific articles",
   "main": "index.js",
   "scripts": {
