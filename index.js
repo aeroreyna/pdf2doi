@@ -8,12 +8,13 @@ let possibleTitle = "";
 
 let pdfOptions = {};
 pdfOptions.version = 'v2.0.550';
+pdfOptions.max = 1;
 pdfOptions.pagerender = function(pageData) {
     let render_options = {
         //replaces all occurrences of whitespace with standard spaces (0x20). The default value is `false`.
         normalizeWhitespace: false,
         //do not attempt to combine same line TextItem's. The default value is `false`.
-        disableCombineTextItems: false
+        disableCombineTextItems: false,
     }
 
     return pageData.getTextContent(render_options)
@@ -75,7 +76,7 @@ pdf2doi.fromData = function(dataBuffer){
         //adds possible title found in the text when parsing
         possibleTitle = possibleTitle.toLowerCase().replace(/\s\s+/g, ' ');
         if( possibleTitle && searchString.indexOf(possibleTitle) == -1 ) searchString += " " + possibleTitle.toLowerCase(); //adds possible title
-        
+
         if( this.verbose ) console.log("Search String for CrossRef:\n" + searchString);
 
         //Feeling looky, just check the first match
@@ -93,13 +94,13 @@ pdf2doi.fromData = function(dataBuffer){
             console.log("DOI: " + objs[0].DOI + "\n");
           }
 
-          if(objs[0].title && searchString.indexOf(objs[0].title[0].toLowerCase())!=-1){
+          if(objs[0] && objs[0].title && searchString.indexOf(objs[0].title[0].toLowerCase())!=-1){
             if( this.verbose ) console.log("Titles match: DOI found!");
             doi.crossRefDOI = objs[0].DOI;
             doi.doi = objs[0].DOI;
             resolve(doi);
           } else {
-            doi.doi = doi.inFileDOI;
+            doi.doi = doi.inFileDOI.toLowerCase();
             resolve(doi);
           }
         });
