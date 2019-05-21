@@ -1,11 +1,11 @@
 {
   "name": "pdf2doi",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A node.js tool to find the DOI of pdf scientific articles",
   "main": "index.js",
   "repository": {
-        "type": "git",
-        "url": "https://github.com/aeroreyna/pdf2doi.git"
+    "type": "git",
+    "url": "https://github.com/aeroreyna/pdf2doi.git"
   },
   "homepage": "https://github.com/aeroreyna/pdf2doi.git",
   "scripts": {
