@@ -63,15 +63,21 @@ pdf2doi.fromData = function(dataBuffer){
         doi.inFileDOI = inFileDOI ? inFileDOI[0] : inFileDOI; //it should be the first one found
 
         let lines = data.text.split('\n');
-        while(!lines[0].match(/[A-z]/)) lines.shift(); //pdf-parse add two blank lines
+        if( this.verbose ) console.log(lines);
 
-        let firstLine = lines[0].match(/[A-z]/);
-        lines[0] = lines[0].slice(firstLine.index); //removes page number if found first
+        while(lines[0] && !lines[0].match(/[A-z]/)){
+          lines.shift(); //pdf-parse add two blank lines
+        }
 
-        if( this.verbose ) console.log(lines)
+        let searchString = "";
 
-        let searchString = lines[0] + " " + lines[1] + " " + lines[2] + " " + lines[3]; //this should contain the journal, title and authors.
-        searchString = searchString.toLowerCase().replace(/\s\s+/g, ' ');
+        if(lines[0] && lines[1] && lines[2] && lines[3]){
+          let firstLine = lines[0].match(/[A-z]/);
+          lines[0] = lines[0].slice(firstLine.index); //removes page number if found first
+
+          searchString = lines[0] + " " + lines[1] + " " + lines[2] + " " + lines[3]; //this should contain the journal, title and authors.
+          searchString = searchString.toLowerCase().replace(/\s\s+/g, ' ');
+        }
 
         //adds possible title found in the text when parsing
         possibleTitle = possibleTitle.toLowerCase().replace(/\s\s+/g, ' ');
