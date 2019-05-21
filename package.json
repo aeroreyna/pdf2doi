@@ -3,6 +3,11 @@
   "version": "1.0.2",
   "description": "A node.js tool to find the DOI of pdf scientific articles",
   "main": "index.js",
+  "repository": {
+        "type": "git",
+        "url": "https://github.com/aeroreyna/pdf2doi.git"
+  },
+  "homepage": "https://github.com/aeroreyna/pdf2doi.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

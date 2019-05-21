@@ -100,7 +100,7 @@ pdf2doi.fromData = function(dataBuffer){
             doi.doi = objs[0].DOI;
             resolve(doi);
           } else {
-            doi.doi = doi.inFileDOI.toLowerCase();
+            doi.doi = doi.inFileDOI ? doi.inFileDOI.toLowerCase() : "";
             resolve(doi);
           }
         });
